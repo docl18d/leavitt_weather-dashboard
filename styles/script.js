@@ -18,7 +18,7 @@ $(function () {
             weatherFunction(searchTerm);
         }
     });
-    console.log(searchTerm);
+   
 
 
 
