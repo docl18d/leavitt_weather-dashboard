@@ -40,7 +40,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
-            url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm + "&appid=9e54fcc6a6103cd924ea373317c87301&units=imperial",
+            url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm + "&appid=9e54fcc6a6103cd924ea373317c87301&units=imperial" ,
             
         }).then(function (data) {
             if (history.indexOf(searchTerm) === -1) {
@@ -59,6 +59,7 @@ $(document).ready(function () {
             var wind = $("<p>").addClass("card-text").text("Wind Speed: " + data.wind.speed + " MPH");
             var humid = $("<p>").addClass("card-text").text("Humidity: " + data.main.humidity + "%");
             var temp = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp + " °F");
+            var roundedNumber=Math.floor(searchTerm);
 
             var lon = data.coord.lon;
             var lat = data.coord.lat;
@@ -118,10 +119,12 @@ $(document).ready(function () {
                     var colFive = $("<div>").addClass("col-md-2.5");
                     var cardFive = $("<div>").addClass("card bg-primary text-white");
                     var cardBodyFive = $("<div>").addClass("card-body p-2");
+                    // var windFive = $("<p>").addClass("card-text").text("Wind: " + data.list[i].main.wind + " MPH");
+                    var windFive = $("<p>").addClass("card-text").text("Wind Speed: " + data.list[i].wind.speed + " MPH");
                     var humidFive = $("<p>").addClass("card-text").text("Humidity: " + data.list[i].main.humidity + "%");
                     var tempFive = $("<p>").addClass("card-text").text("Temperature: " + data.list[i].main.temp + " °F");
      
-                    colFive.append(cardFive.append(cardBodyFive.append(titleFive, imgFive, tempFive, humidFive)));
+                    colFive.append(cardFive.append(cardBodyFive.append(titleFive, imgFive, windFive, tempFive, humidFive)));
                     $("#forecast .row").append(colFive);
 
                 }
