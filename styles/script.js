@@ -40,7 +40,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
-            url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm + "&appid=9e54fcc6a6103cd924ea373317c87301&units=imperial" ,
+            url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm + "&appid=987c73bd1a5fdefe46a4172c1fe33bcf&units=imperial" ,
             
         }).then(function (data) {
             if (history.indexOf(searchTerm) === -1) {
@@ -66,7 +66,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "GET",
-                url: "https://api.openweathermap.org/data/2.5/uvi?appid=9e54fcc6a6103cd924ea373317c87301&lat=" + lat + "&lon=" + lon,
+                url: "https://api.openweathermap.org/data/2.5/uvi?appid=987c73bd1a5fdefe46a4172c1fe33bcf&lat=" + lat + "&lon=" + lon,
 
 
             }).then(function (response) {
@@ -98,12 +98,12 @@ $(document).ready(function () {
             $("#today").append(card);
             console.log(data);
 });
-    }
+    }  
 // Five Day forcast cards
     function weatherForecast(searchTerm) {
         $.ajax({
             type: "GET",
-            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + searchTerm + "&appid=9e54fcc6a6103cd924ea373317c87301&units=imperial",
+            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + searchTerm + "&appid=987c73bd1a5fdefe46a4172c1fe33bcf&units=imperial",
 
         }).then(function (data) {
             console.log(data);
